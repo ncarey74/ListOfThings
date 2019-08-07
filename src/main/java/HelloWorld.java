@@ -38,5 +38,91 @@ public class HelloWorld {
         someMoreThings.beta = false;
         allTheThings.add(someMoreThings);
         mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data3.json"), allTheThings);
+
+        makeBiggerThing();
+        makeEvenBiggerThing();
+        makeColossalThing();
+        makeGoodThing();
+        makeBestThing();
+    }
+
+    private static void makeBiggerThing() throws IOException {
+        BiggerThing thing = new BiggerThing();
+
+        thing.alpha = "jumping rope";
+        thing.beta = "soccer ball";
+        thing.gamma = "football";
+        thing.delta = "baseball";
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data4.json"), thing);
+    }
+
+    private static void makeEvenBiggerThing() throws IOException {
+        BiggerThing thing = new BiggerThing();
+
+        thing.alpha = "awesomeness.exe";
+
+        List<String> arguments = new ArrayList<String>();
+        arguments.add("-j");
+        arguments.add("-r");
+        thing.beta = arguments;
+
+        thing.gamma = "team";
+        thing.delta = 10;
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data5.json"), thing);
+    }
+
+    private static void makeColossalThing() throws IOException {
+        List<BiggerThing> colossalThing = new ArrayList<BiggerThing>();
+        colossalThing.add(giveMeTheThing(true, 1, 12, "hello!"));
+        colossalThing.add(giveMeTheThing(true, 2, 22, "world!"));
+        colossalThing.add(giveMeTheThing(false, 22, 567, "goodbye!"));
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data6.json"), colossalThing);
+    }
+
+    private static BiggerThing giveMeTheThing(Object alpha, Object bravo, Object gamma, Object delta) {
+        BiggerThing thing = new BiggerThing();
+
+        thing.alpha = alpha;
+        thing.beta = bravo;
+        thing.gamma = gamma;
+        thing.delta = delta;
+
+        return thing;
+    }
+    
+    private static void makeGoodThing() throws IOException {
+        List<BiggerThing> goodThing = new ArrayList<BiggerThing>();
+        List<String> tinyThings = new ArrayList<String>();
+        tinyThings.add("--recursive");
+        tinyThings.add("--update");
+        tinyThings.add("--216.3.128.12");
+        goodThing.add(giveMeTheThing("Alice", 26, tinyThings, "12"));
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data7.json"), goodThing);
+    }
+
+    private static void makeBestThing() throws IOException {
+        List<BiggerThing> bestThing = new ArrayList<BiggerThing>();
+        List<String> tinyThings = new ArrayList<String>();
+        tinyThings.add("--recursive");
+        tinyThings.add("--update");
+        tinyThings.add("--216.3.128.12");
+        bestThing.add(giveMeTheThing("Alice", 26, tinyThings, "12"));
+
+        List<String> someMore = new ArrayList<String>();
+        someMore.add("--recursive");
+        someMore.add("--help");
+        someMore.add("--216.3.128.12");
+        bestThing.add(giveMeTheThing("Bob", 25, someMore, "13"));
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data8.json"), bestThing);
     }
 }
