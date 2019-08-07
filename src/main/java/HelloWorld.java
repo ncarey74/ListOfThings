@@ -27,5 +27,16 @@ public class HelloWorld {
         info.put("Sally", 30);
         info.put("John", 31);
         mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data2.json"), info);
+
+        List<ManyThings> allTheThings = new ArrayList<ManyThings>();
+        ManyThings manyThings = new ManyThings();
+        manyThings.alpha = "String";
+        manyThings.beta = 10;
+        allTheThings.add(manyThings);
+        ManyThings someMoreThings = new ManyThings();
+        someMoreThings.alpha = "Words";
+        someMoreThings.beta = false;
+        allTheThings.add(someMoreThings);
+        mapper.writeValue(new File("C:\\Users\\Carey\\Desktop\\data3.json"), allTheThings);
     }
 }
